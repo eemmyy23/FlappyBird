@@ -48,7 +48,9 @@ void draw() {
   if (pozY<rad) {
     directieY=1;
   }
+  
   // deseneaza cercul
+  fill(255,0,0);
   ellipse(pozX, pozY, rad, rad);
 }
 
