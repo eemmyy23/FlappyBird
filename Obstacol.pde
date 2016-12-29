@@ -7,20 +7,24 @@ class Obstacol {
   int inaltimeCale=70;
   Obstacol(float pozXin, float caleYin) {
     pozX = pozXin;
-    caleY = random(inaltimeCale + 20 , height - inaltimeCale - 20);;
+    caleY = random(inaltimeCale + 20, height - inaltimeCale - 20);
+    ;
   }
-  
+
   void move() {
     pozX=pozX + vitezaX * directieX;
+    if (pozX < -latimeObstacol) {
+      pozX = width + 2 * latimeObstacol;
+      caleY = random(inaltimeCale + 20, height - inaltimeCale - 20);
+
+    }
   }
-  
+
   void display() {
-    fill(0,255,100);
+    fill(0, 255, 100);
     rectMode(CORNERS);
-    rect(pozX,caleY-inaltimeCale,pozX+latimeObstacol,0);
-    rect(pozX,caleY+inaltimeCale,pozX+latimeObstacol,height);
-    println("rect(",pozX,0,pozX+latimeObstacol,height,");");
-    
+    rect(pozX, caleY-inaltimeCale, pozX+latimeObstacol, 0);
+    rect(pozX, caleY+inaltimeCale, pozX+latimeObstacol, height);
+    println("rect(", pozX, 0, pozX+latimeObstacol, height, ");");
   }
-  
 }
