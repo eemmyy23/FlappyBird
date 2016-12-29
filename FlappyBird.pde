@@ -5,12 +5,17 @@ float vitezaY = 7.5;  // viteza initiala pe y
 int directieY = 1;  // 1 coborare; -1 urcare
 int startFrUrcare=0;
 int durataFrUrcare=15;
+Obstacol o1, o2, o3;
 void gameOver() {
   noLoop();
 }
 
 void setup() {
-  size(560, 688);
+  randomSeed(10);
+  size(558, 686);
+  o1 = new Obstacol(width, height/2);
+  o2 = new Obstacol(width + 93 * 3, height/2);
+  o3 = new Obstacol(width + 93 * 6, height/2);
   noStroke();
   frameRate(30);
   ellipseMode(RADIUS);
@@ -22,6 +27,17 @@ void setup() {
 
 void draw() {
   println(frameCount);
+
+  PImage img;
+  img = loadImage("background1.png");
+  background(img);
+
+  o1.move();
+  o1.display();
+  o2.move();
+  o2.display();
+  o3.move();
+  o3.display();
   if (frameCount>=startFrUrcare+durataFrUrcare) {
     directieY=1;
   }
@@ -33,9 +49,7 @@ void draw() {
       vitezaY=vitezaY+0.3;
     }
   }
-  PImage img;
-  img = loadImage("background1.png");
-  background(img);
+
 
   pozY = pozY + ( vitezaY * directieY );
 
@@ -48,9 +62,9 @@ void draw() {
   if (pozY<rad) {
     directieY=1;
   }
-  
+
   // deseneaza cercul
-  fill(255,0,0);
+  fill(255, 0, 0);
   ellipse(pozX, pozY, rad, rad);
 }
 
