@@ -16,7 +16,6 @@ class Obstacol {
     if (pozX < -latimeObstacol) {
       pozX = width + 2 * latimeObstacol;
       caleY = random(inaltimeCale + 20, height - inaltimeCale - 20);
-
     }
   }
 
@@ -26,5 +25,12 @@ class Obstacol {
     rect(pozX, caleY-inaltimeCale, pozX+latimeObstacol, 0);
     rect(pozX, caleY+inaltimeCale, pozX+latimeObstacol, height);
     println("rect(", pozX, 0, pozX+latimeObstacol, height, ");");
+  }
+
+  boolean coleziune(float centruX, float centruY, float raza) {
+    if ( centruX + raza >= pozX) { //  && centruY + raza <= caleY-inaltimeCale
+      return true;
+    }
+    return false;
   }
 }

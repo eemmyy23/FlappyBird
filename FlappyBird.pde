@@ -34,10 +34,22 @@ void draw() {
 
   o1.move();
   o1.display();
+
   o2.move();
   o2.display();
+
   o3.move();
   o3.display();
+
+  if (      
+    o1.coleziune(pozX, pozY, rad) ||
+    o2.coleziune(pozX, pozY, rad) ||
+    o3.coleziune(pozX, pozY, rad)
+    ) {    
+    gameOver();
+  }
+
+
   if (frameCount>=startFrUrcare+durataFrUrcare) {
     directieY=1;
   }
