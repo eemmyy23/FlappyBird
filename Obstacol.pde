@@ -10,7 +10,7 @@ class Obstacol {
     caleY = random(inaltimeCale + 20, height - inaltimeCale - 20);
     ;
   }
-
+ 
   void move() {
     pozX=pozX + vitezaX * directieX;
     if (pozX < -latimeObstacol) {
@@ -20,15 +20,20 @@ class Obstacol {
   }
 
   void display() {
-    fill(0, 255, 100);
+    stroke(10, 10, 10, 100);  
+    fill(60, 245, 80);
     rectMode(CORNERS);
     rect(pozX, caleY-inaltimeCale, pozX+latimeObstacol, 0);
     rect(pozX, caleY+inaltimeCale, pozX+latimeObstacol, height);
     println("rect(", pozX, 0, pozX+latimeObstacol, height, ");");
   }
+  
 
   boolean coleziune(float centruX, float centruY, float raza) {
-    if ( centruX + raza >= pozX) { //  && centruY + raza <= caleY-inaltimeCale
+    if ( centruX + raza >= pozX  && centruY + raza <= caleY-(inaltimeCale/2) && centruX + raza <= pozX+latimeObstacol) {
+      return true;
+    }
+      if ( centruX + raza >= pozX  && centruY + raza >= caleY+(inaltimeCale) && centruX + raza <= pozX+latimeObstacol) {
       return true;
     }
     return false;

@@ -1,4 +1,4 @@
-int rad = 20;        // raza cercului
+ int rad = 20;        // raza cercului
 float pozX, pozY;    // pozitia initiala a cercului    
 
 float vitezaY = 7.5;  // viteza initiala pe y
@@ -76,7 +76,7 @@ void draw() {
   }
 
   // deseneaza cercul
-  fill(255, 0, 0);
+  fill(150, 20, 100);
   ellipse(pozX, pozY, rad, rad);
 }
 
