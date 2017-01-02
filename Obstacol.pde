@@ -30,12 +30,19 @@ class Obstacol {
   
 
   boolean coleziune(float centruX, float centruY, float raza) {
-    if ( centruX + raza >= pozX  && centruY + raza <= caleY-(inaltimeCale/2) && centruX + raza <= pozX+latimeObstacol) {
+    if ( centruX + raza >= pozX  && centruY + raza <= caleY-(inaltimeCale/2) &&  centruX - raza <= pozX+latimeObstacol) {
       return true;
     }
-      if ( centruX + raza >= pozX  && centruY + raza >= caleY+(inaltimeCale) && centruX + raza <= pozX+latimeObstacol) {
+      if ( centruX + raza >= pozX  && centruY + raza >= caleY+(inaltimeCale) && centruX - raza <= pozX+latimeObstacol) {
       return true;
     }
     return false;
   }
+
+  boolean trecereObstacol(float centruX, float centruY, float raza) {
+    if (centruX + raza <= pozX+latimeObstacol) {
+      return true;
+    }
+    return false;
+ }
 }

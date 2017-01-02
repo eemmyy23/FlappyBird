@@ -1,7 +1,7 @@
- int rad = 20;        // raza cercului
+ int rad = 20,a=0;        // raza cercului
 float pozX, pozY;    // pozitia initiala a cercului    
 
-float vitezaY = 7.5;  // viteza initiala pe y
+float vitezaY = 8.5;  // viteza initiala pe y
 int directieY = 1;  // 1 coborare; -1 urcare
 int startFrUrcare=0;
 int durataFrUrcare=15;
@@ -48,17 +48,26 @@ void draw() {
     ) {    
     gameOver();
   }
+  else
+  if(  o1.coleziune(pozX, pozY, rad) ||
+    o2.coleziune(pozX, pozY, rad) ||
+    o2.coleziune(pozX, pozY, rad)
+  ){
+    print(a);
+    a++;
+  }
+    
 
 
   if (frameCount>=startFrUrcare+durataFrUrcare) {
     directieY=1;
   }
   if (directieY==-1) {
-    vitezaY=vitezaY-0.3;
+    vitezaY=vitezaY-0.5 ;
   }
   if (directieY==1) {
-    if (vitezaY<7.5) {
-      vitezaY=vitezaY+0.3;
+    if (vitezaY<9.5) {
+      vitezaY=vitezaY+1;
     }
   }
 
