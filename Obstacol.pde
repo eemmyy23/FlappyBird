@@ -20,11 +20,14 @@ class Obstacol {
   }
 
   void display() {
-    stroke(10, 10, 10, 100);  
-    fill(60, 245, 80);
+    stroke(0, 0, 0); 
+    strokeWeight(1.5);
+    fill(40, 195, 20);
     rectMode(CORNERS);
     rect(pozX, caleY-inaltimeCale, pozX+latimeObstacol, 0);
+    line(pozX, caleY-inaltimeCale, pozX+latimeObstacol, caleY-inaltimeCale);
     rect(pozX, caleY+inaltimeCale, pozX+latimeObstacol, height);
+   
     println("rect(", pozX, 0, pozX+latimeObstacol, height, ");");
   }
   

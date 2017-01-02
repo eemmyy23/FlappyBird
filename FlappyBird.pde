@@ -85,8 +85,28 @@ void draw() {
   }
 
   // deseneaza cercul
-  fill(150, 20, 100);
+  fill(245, 50, 20);
   ellipse(pozX, pozY, rad, rad);
+  
+  fill(255, 255, 255);
+  ellipse(pozX+rad/5, pozY-rad/2 , rad/3, rad/4);
+  fill(0, 0, 0);
+  ellipse(pozX+rad/5+2, pozY-rad/2-1, rad/6, rad/9);
+  
+  fill(255, 255, 255);
+  ellipse(pozX+rad/2+2, pozY-3*rad/4, rad/4, rad/5);
+  fill(0, 0, 0);
+  ellipse(pozX+rad/2+4, pozY-3*rad/4-1, rad/10, rad/10);
+  
+  fill(245, 50, 20);
+  quad(pozX-rad, pozY-rad/5, pozX-rad, pozY+rad/5, pozX-4*rad/3, pozY+rad/3, pozX-4*rad/3, pozY-rad/3 );
+
+fill(450, 220, 100);
+triangle(pozX+3*rad/4+1, pozY-rad/4-1, pozX+3*rad/4+1, pozY+rad/4-1, pozX+5*rad/4, pozY);
+
+fill(250, 820, 100);
+triangle(pozX+3*rad/4+2, pozY+rad/4-1, pozX+rad, pozY+rad/8, pozX+5*rad/4-2, pozY+rad/4);
+
 }
 
 void keyPressed() {
