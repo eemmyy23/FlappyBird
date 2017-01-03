@@ -20,7 +20,7 @@ void setup() {
   frameRate(30);
   ellipseMode(RADIUS);
   // setez pozitie cerc
-  pozX = width/6;
+  pozX = width/6;         
   pozY = height/2;
   loop();
 }
@@ -85,6 +85,8 @@ void draw() {
   }
 
   // deseneaza cercul
+  stroke(0,0,0);
+  strokeWeight(1.8);
   fill(245, 50, 20);
   ellipse(pozX, pozY, rad, rad);
   

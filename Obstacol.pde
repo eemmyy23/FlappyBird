@@ -67,7 +67,78 @@ class Obstacol {
     line(pozX+67, caleY+inaltimeCale+49, pozX+67, caleY+inaltimeCale+42);
     line(pozX+80, caleY+inaltimeCale+42, pozX+80, caleY+inaltimeCale+35);
    line(pozX+latimeObstacol+1, caleY+inaltimeCale, pozX+latimeObstacol+1, caleY+inaltimeCale+35);
-    println("rect(", pozX, 0, pozX+latimeObstacol, height, ");");
+   println("rect(", pozX, 0, pozX+latimeObstacol, height, ");");
+    
+  stroke(255, 255, 255, 70);
+    strokeWeight(5);
+    line(pozX+3,caleY-inaltimeCale-38,pozX+3, 3);
+    stroke(255, 255, 255, 120);
+    strokeWeight(5);
+    line(pozX+8,caleY-inaltimeCale-38,pozX+8, 3);
+    stroke(255, 255, 255, 70);
+    strokeWeight(5);
+    line(pozX+13,caleY-inaltimeCale-45,pozX+13, 3);
+    
+    
+    stroke(255, 255, 255, 120);
+    strokeWeight(5);
+    line(pozX+3,caleY-inaltimeCale-32,pozX+3,caleY-inaltimeCale-4);
+    stroke(255, 255, 255, 70);
+    strokeWeight(5);
+    line(pozX+8,caleY-inaltimeCale-32,pozX+8,caleY-inaltimeCale-4);
+    
+    stroke(255, 255, 255, 120);
+    strokeWeight(5);
+    line(pozX+3,caleY+inaltimeCale+32,pozX+3,caleY+inaltimeCale+4);
+    stroke(255, 255, 255, 70);
+    strokeWeight(5);
+    line(pozX+8,caleY+inaltimeCale+32,pozX+8,caleY+inaltimeCale+4);
+    
+     stroke(255, 255, 255, 70);
+    strokeWeight(5);
+    line(pozX+3,caleY+inaltimeCale+38,pozX+3, height-3);
+    stroke(255, 255, 255, 120);
+    strokeWeight(5);
+    line(pozX+8,caleY+inaltimeCale+38,pozX+8, height-3);
+    stroke(255, 255, 255, 70);
+    strokeWeight(5);
+    line(pozX+13,caleY+inaltimeCale+45,pozX+13, height-3);
+    
+    stroke(0, 0, 0, 130);
+    strokeWeight(5);
+    line(pozX+latimeObstacol-3,caleY-inaltimeCale-38,pozX+latimeObstacol-3, 3);
+    stroke(0, 0, 0, 50);
+    strokeWeight(5);
+    line(pozX+latimeObstacol-8,caleY-inaltimeCale-38,pozX+latimeObstacol-8, 3);
+    stroke(0, 0, 0, 70);
+    strokeWeight(5);
+    line(pozX+latimeObstacol-13,caleY-inaltimeCale-45,pozX+latimeObstacol-13, 3);
+    
+    
+    stroke(0, 0, 0, 130);
+    strokeWeight(5);
+    line(pozX+latimeObstacol-3,caleY-inaltimeCale-32,pozX+latimeObstacol-3,caleY-inaltimeCale-4);
+    stroke(0, 0, 0, 70);
+    strokeWeight(5);
+    line(pozX+latimeObstacol-8,caleY-inaltimeCale-32,pozX+latimeObstacol-8,caleY-inaltimeCale-4);
+    
+    stroke(0, 0, 0, 130);
+    strokeWeight(5);
+    line(pozX+latimeObstacol-3,caleY+inaltimeCale+32,pozX+latimeObstacol-3,caleY+inaltimeCale+4);
+    stroke(0, 0, 0, 70);
+    strokeWeight(5);
+    line(pozX+latimeObstacol-8,caleY+inaltimeCale+32,pozX+latimeObstacol-8,caleY+inaltimeCale+4);
+    
+     stroke(0, 0, 0, 130);
+    strokeWeight(5);
+    line(pozX+latimeObstacol-3,caleY+inaltimeCale+38,pozX+latimeObstacol-3, height-3);
+    stroke(0, 0, 0, 50);
+    strokeWeight(5);
+    line(pozX+latimeObstacol-8,caleY+inaltimeCale+38,pozX+latimeObstacol-8, height-3);
+    stroke(0, 0, 0, 70);
+    strokeWeight(5);
+    line(pozX+latimeObstacol-13,caleY+inaltimeCale+45,pozX+latimeObstacol-13, height-3);
+    
   }
   
  
@@ -75,7 +146,7 @@ class Obstacol {
     if ( centruX + raza >= pozX  && centruY + raza <= caleY-(inaltimeCale/3)-2 &&  centruX - raza <= pozX+latimeObstacol) {
       return true;
     }
-      if ( centruX + raza >= pozX  && centruY + raza >= caleY+(inaltimeCale)-8 && centruX - raza <= pozX+latimeObstacol) {
+      if ( centruX + raza >= pozX  && centruY + raza >= caleY+(inaltimeCale)-7 && centruX - raza <= pozX+latimeObstacol) {
       return true;
     }
     return false;
