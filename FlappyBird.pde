@@ -102,13 +102,13 @@ void draw() {
   quad(pozX-rad, pozY-rad/5, pozX-rad, pozY+rad/5, pozX-4*rad/3, pozY+rad/3, pozX-4*rad/3, pozY-rad/3 );
 
 fill(450, 220, 100);
-triangle(pozX+3*rad/4+1, pozY-rad/4-1, pozX+3*rad/4+1, pozY+rad/4-1, pozX+5*rad/4, pozY);
+triangle(pozX+3*rad/4, pozY+2, pozX+rad-2, pozY-rad/4, pozX+5*rad/4+1, pozY+2);
 
 fill(250, 820, 100);
-triangle(pozX+3*rad/4+2, pozY+rad/4-1, pozX+rad, pozY+rad/8, pozX+5*rad/4-2, pozY+rad/4);
+quad(pozX+3*rad/4, pozY+2,pozX+5*rad/4-3,pozY+2, pozX+5*rad/4 , pozY+rad/4 , pozX+rad-2, pozY+rad/4+2 );
+
 
 }
-
 void keyPressed() {
   directieY=-1;
   startFrUrcare=frameCount;
