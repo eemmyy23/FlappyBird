@@ -148,7 +148,7 @@ class Obstacol {
 
 
   boolean coleziune(float centruX, float centruY, float raza) {
-    if ( centruX + raza >= pozX  && centruY + raza <= caleY-(inaltimeCale/3)-2 &&  centruX - raza <= pozX+latimeObstacol) {
+    if ( centruX + raza >= pozX  && centruY + raza <= caleY-(inaltimeCale/3)-3 &&  centruX - raza <= pozX+latimeObstacol) {
       return true;
     }
     if ( centruX + raza >= pozX  && centruY + raza >= caleY+(inaltimeCale)-7 && centruX - raza <= pozX+latimeObstacol) {

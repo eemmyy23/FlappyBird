@@ -6,12 +6,18 @@ int directieY = 1;  // 1 coborare; -1 urcare
 int startFrUrcare=0;
 int durataFrUrcare=15;
 Obstacol o1, o2, o3;
+
 void gameOver() {
-  noLoop();
+  directieY=1;
+  while(pozY<height-rad-4){
+   pozY = pozY + ( 0.0001 * directieY );
+   pozY++;
+  }
+   noLoop();
 }
 
 void setup() {
-  randomSeed(10);
+  random(10);
   scor=0;
   size(558, 686);
   o1 = new Obstacol(width, height/2);
@@ -56,6 +62,7 @@ void draw() {
     gameOver();
   }
   else
+  
   if(  o1.trecereObstacol(pozX) ||
     o2.trecereObstacol(pozX) ||
     o3.trecereObstacol(pozX)
@@ -64,7 +71,6 @@ void draw() {
      
   }
     
-
 
   if (frameCount>=startFrUrcare+durataFrUrcare) {
     directieY=1;
