@@ -1,6 +1,6 @@
- int rad = 20,a=0;        // raza cercului
+ int rad = 20,scor=0;        // raza cercului
 float pozX, pozY;    // pozitia initiala a cercului    
-
+ 
 float vitezaY = 8.5;  // viteza initiala pe y
 int directieY = 1;  // 1 coborare; -1 urcare
 int startFrUrcare=0;
@@ -12,6 +12,7 @@ void gameOver() {
 
 void setup() {
   randomSeed(10);
+  scor=0;
   size(558, 686);
   o1 = new Obstacol(width, height/2);
   o2 = new Obstacol(width + 93 * 3, height/2);
@@ -23,12 +24,14 @@ void setup() {
   pozX = width/6;         
   pozY = height/2;
   loop();
+  
 }
 
 void draw() {
   println(frameCount);
 
   PImage img;
+  PFont f;
   img = loadImage("background1.png");
   background(img);
 
@@ -40,6 +43,10 @@ void draw() {
 
   o3.move();
   o3.display();
+  f = createFont("Georgia", 48);
+    textFont(f);
+    textAlign(CENTER);
+  drawType(width * 0.5,scor);
 
   if (      
     o1.coleziune(pozX, pozY, rad) ||
@@ -49,12 +56,12 @@ void draw() {
     gameOver();
   }
   else
-  if(  o1.coleziune(pozX, pozY, rad) ||
-    o2.coleziune(pozX, pozY, rad) ||
-    o2.coleziune(pozX, pozY, rad)
+  if(  o1.trecereObstacol(pozX) ||
+    o2.trecereObstacol(pozX) ||
+    o3.trecereObstacol(pozX)
   ){
-    print(a);
-    a++;
+    scor=scor+1;
+     
   }
     
 
@@ -110,6 +117,11 @@ fill(250, 820, 100);
 quad(pozX+3*rad/4, pozY+2,pozX+5*rad/4-3,pozY+2, pozX+5*rad/4 , pozY+rad/4 , pozX+rad-2, pozY+rad/4+2 );
 
 
+}
+void drawType(float x, int a) {
+ fill (255);
+  text(a, x, height/4);
+ 
 }
 void keyPressed() {
   directieY=-1;
