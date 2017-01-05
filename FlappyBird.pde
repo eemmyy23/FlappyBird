@@ -16,6 +16,7 @@ void gameOver() {
     
   }
   noLoop();
+  
   rectMode(CENTER); 
   fill(150,34,34);
      rect(width/2, height/2, 300, 200);
@@ -23,6 +24,12 @@ void gameOver() {
   textFont(f); 
   textAlign(CENTER);
   scrie(scor,timp);
+ JSONObject scorMax;
+  scorMax = new JSONObject();
+
+  scorMax.setInt("scor", scor);
+  scorMax.setInt("timp", timp);
+  saveJSONObject(scorMax, "data/scor.json");
 }
 
 void setup() {
