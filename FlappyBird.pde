@@ -1,5 +1,6 @@
 int rad = 20, scor=0;        // raza cercului
-float pozX, pozY,framestart=0;    // pozitia initiala a cercului    
+float pozX, pozY;    // pozitia initiala a cercului  
+int framestart=0;  
 PFont f;
 float vitezaY = 8.5;  // viteza initiala pe y
 int directieY = 1;  // 1 coborare; -1 urcare
@@ -8,7 +9,7 @@ int durataFrUrcare=15;
 Obstacol o1, o2, o3;
 
 void gameOver() {
-  float timp=(frameCount-framestart)/frameRate;
+  int timp=(int)((frameCount-framestart)/frameRate);
   directieY=1;
   while (pozY<height-rad-4) {
     pozY = pozY + ( 0.0001 * directieY );
@@ -131,7 +132,7 @@ void drawType(float x, int a) {
   fill (255);
   text(a, x, height/4);
 }
-void scrie(int scor, float timp) {
+void scrie(int scor, int timp) {
   fill (235,140 ,0,255);
   f = createFont("Georgia", 48);
     textFont(f); 
