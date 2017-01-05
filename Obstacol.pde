@@ -4,12 +4,13 @@ class Obstacol {
   float vitezaX = 3;
   float directieX = -1;
   float latimeObstacol=93;
-  int inaltimeCale=70;
+  int inaltimeCale=90;
   Obstacol(float pozXin, float caleYin) {
     pozX = pozXin;
     caleY = random(inaltimeCale + 20, height - inaltimeCale - 20);
     ;
   }
+ 
 
   void move() {
     pozX=pozX + vitezaX * directieX;
@@ -143,22 +144,15 @@ class Obstacol {
     if (centruX==pozX) {
       return true;
     } 
-      return false;
+    return false;
   }
 
 
   boolean coleziune(float centruX, float centruY, float raza) {
-    if ( centruX + raza >= pozX  && centruY + raza <= caleY-(inaltimeCale/3)-3 &&  centruX - raza <= pozX+latimeObstacol) {
+    if ( centruX + raza >= pozX  && centruY - raza <= caleY-inaltimeCale &&  centruX - raza <= pozX+latimeObstacol) {
       return true;
     }
-    if ( centruX + raza >= pozX  && centruY + raza >= caleY+(inaltimeCale)-7 && centruX - raza <= pozX+latimeObstacol) {
-      return true;
-    }
-    return false;
-  }
-
-  boolean trecereObstacol(float centruX, float centruY, float raza) {
-    if (centruX + raza <= pozX+latimeObstacol) {
+    if ( centruX + raza >= pozX  && centruY + raza >= caleY+inaltimeCale && centruX - raza <= pozX+latimeObstacol) {
       return true;
     }
     return false;
