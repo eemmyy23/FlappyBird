@@ -23,13 +23,20 @@ void gameOver() {
   f = createFont("Georgia", 36);
   textFont(f); 
   textAlign(CENTER);
-  scrie(scor,timp);
- JSONObject scorMax;
-  scorMax = new JSONObject();
+  
+ JSONObject scorMax,json;
+ 
+ scorMax = loadJSONObject("data/scor.json");
 
+  int scorRecord = scorMax.getInt("scor");
+   int timpRecord = scorMax.getInt("timp");
+ if(scor>scorRecord){
+  scorMax = new JSONObject();
   scorMax.setInt("scor", scor);
   scorMax.setInt("timp", timp);
   saveJSONObject(scorMax, "data/scor.json");
+ }
+  scrie(scor,timp,scorRecord,timpRecord);
 }
 
 void setup() {
@@ -139,21 +146,24 @@ void drawType(float x, int a) {
   fill (255);
   text(a, x, height/4);
 }
-void scrie(int scor, int timp) {
+void scrie(int scor, int timp,int scorRecord, int timpRecord) {
   fill (235,140 ,0,255);
   f = createFont("Georgia", 48);
     textFont(f); 
       text("GAME OVER", width/2, height/2-110);
   fill (255);
-  f = createFont("Times new Roman", 36);
+  f = createFont("Times new Roman", 30);
     textFont(f); 
-      text("SCOR:", width/2-75, height/2-60);
+      text("SCOR:", width/2-100, height/2-60);
       text(scor, width/2, height/2-60);
-      text("TIMP:", width/2-75, height/2-10);
-      text(timp, width/2+20, height/2-10);
-       text("sec", width/2+110, height/2-10);
-      text("SCOR", width/2-75, height/2+40);
-      text("MAXIM:", width/2-75, height/2+80);
+      text("TIMP:", width/2-105, height/2-10);
+      text(timp, width/2, height/2-10);
+       text("sec", width/2+90, height/2-10);
+        text("SCOR RECORD:", width/2-35, height/2+40);
+        text(scorRecord, width/2+100, height/2+40);
+      text("TIMP RECORD:", width/2-40, height/2+80);
+       text(timpRecord, width/2+100, height/2+80);
+      
 }
 void keyPressed() {
   directieY=-1;
