@@ -1,5 +1,5 @@
 int rad = 20, scor=0;        // raza cercului
-float pozX, pozY;    // pozitia initiala a cercului    
+float pozX, pozY,framestart=0;    // pozitia initiala a cercului    
 PFont f;
 float vitezaY = 8.5;  // viteza initiala pe y
 int directieY = 1;  // 1 coborare; -1 urcare
@@ -8,6 +8,7 @@ int durataFrUrcare=15;
 Obstacol o1, o2, o3;
 
 void gameOver() {
+  float timp=(frameCount-framestart)/frameRate;
   directieY=1;
   while (pozY<height-rad-4) {
     pozY = pozY + ( 0.0001 * directieY );
@@ -20,7 +21,7 @@ void gameOver() {
   f = createFont("Georgia", 36);
   textFont(f); 
   textAlign(CENTER);
-  scrie();
+  scrie(scor,timp);
 }
 
 void setup() {
@@ -130,16 +131,19 @@ void drawType(float x, int a) {
   fill (255);
   text(a, x, height/4);
 }
-void scrie() {
+void scrie(int scor, float timp) {
   fill (235,140 ,0,255);
   f = createFont("Georgia", 48);
     textFont(f); 
       text("GAME OVER", width/2, height/2-110);
   fill (255);
-  f = createFont("Georgia", 36);
+  f = createFont("Times new Roman", 36);
     textFont(f); 
       text("SCOR:", width/2-75, height/2-60);
+      text(scor, width/2, height/2-60);
       text("TIMP:", width/2-75, height/2-10);
+      text(timp, width/2+20, height/2-10);
+       text("sec", width/2+110, height/2-10);
       text("SCOR", width/2-75, height/2+40);
       text("MAXIM:", width/2-75, height/2+80);
 }
@@ -150,5 +154,7 @@ void keyPressed() {
 }
 
 void mouseClicked() {
+  
   setup();
+  framestart=frameCount;
 }
