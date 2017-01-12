@@ -1,15 +1,17 @@
 int rad = 20, scor=0;        // raza cercului
 float pozX, pozY;    // pozitia initiala a cercului  
+boolean aInceputJoc=false, aripa=false;
 int framestart=0;  
 PFont f;
 float vitezaY = 8.5;  // viteza initiala pe y
 int directieY = 1;  // 1 coborare; -1 urcare
-int startFrUrcare=0;
+int startFrUrcare=0,timp;
 int durataFrUrcare=15;
 Obstacol o1, o2, o3;
-
+Powerup p1;
 void gameOver() {
   int timp=(int)((frameCount-framestart)/frameRate);
+  aInceputJoc=false;
   directieY=1;
   while (pozY<height-rad-4) {
     pozY = pozY + ( 0.0001 * directieY );
@@ -44,6 +46,8 @@ void setup() {
   scor=0;
   size(558, 686);
   o1 = new Obstacol(width, height/2);
+  
+   
   o2 = new Obstacol(width + 93 * 3, height/2);
   o3 = new Obstacol(width + 93 * 6, height/2);
   noStroke();
@@ -62,7 +66,8 @@ void draw() {
   PFont f;
   img = loadImage("background1.png");
   background(img);
-
+if(aInceputJoc==true){
+  
   o1.move();
   o1.display();
 
@@ -116,9 +121,52 @@ void draw() {
   if (pozY<rad) {
     directieY=1;
   }
+}
+else
+scriestart();
 
-  // deseneaza cercul
-  stroke(0, 0, 0);
+deseneazaPasare();
+
+  }
+void drawType(float x, int a) {
+  fill (255);
+  text(a, x, height/4);
+}
+void scriestart() {
+  fill (255,250 ,250,255);
+  f = createFont("Georgia", 24);
+    textFont(f); 
+      text("PRESS SPACE TO START THE GAME ", pozX, height/2-80);
+      
+}
+void scrie(int scor, int timp,int scorRecord, int timpRecord) {
+  fill (235,140 ,0,255);
+  f = createFont("Georgia", 48);
+    textFont(f); 
+      text("GAME OVER", width/2, height/2-110);
+  fill (255);
+  f = createFont("Times new Roman", 30);
+    textFont(f); 
+      text("SCOR:", width/2-100, height/2-60);
+      text(scor, width/2, height/2-60);
+      text("TIMP:", width/2-105, height/2-10);
+      text(timp, width/2, height/2-10);
+       text("sec", width/2+90, height/2-10);
+        text("SCOR RECORD:", width/2-35, height/2+40);
+        text(scorRecord, width/2+100, height/2+40);
+      text("TIMP RECORD:", width/2-40, height/2+80);
+       text(timpRecord, width/2+100, height/2+80);
+      
+}
+void keyPressed() {
+  aInceputJoc=true;
+  directieY=-1;
+  startFrUrcare=frameCount;
+  vitezaY=7.5;
+}
+void deseneazaPasare() {
+  
+    stroke(0, 0, 0);
   strokeWeight(1.8);
   fill(245, 50, 20);
   ellipse(pozX, pozY, rad, rad);
@@ -141,36 +189,8 @@ void draw() {
 
   fill(250, 820, 100);
   quad(pozX+3*rad/4, pozY+2, pozX+5*rad/4-3, pozY+2, pozX+5*rad/4, pozY+rad/4, pozX+rad-2, pozY+rad/4+2 );
-}
-void drawType(float x, int a) {
-  fill (255);
-  text(a, x, height/4);
-}
-void scrie(int scor, int timp,int scorRecord, int timpRecord) {
-  fill (235,140 ,0,255);
-  f = createFont("Georgia", 48);
-    textFont(f); 
-      text("GAME OVER", width/2, height/2-110);
-  fill (255);
-  f = createFont("Times new Roman", 30);
-    textFont(f); 
-      text("SCOR:", width/2-100, height/2-60);
-      text(scor, width/2, height/2-60);
-      text("TIMP:", width/2-105, height/2-10);
-      text(timp, width/2, height/2-10);
-       text("sec", width/2+90, height/2-10);
-        text("SCOR RECORD:", width/2-35, height/2+40);
-        text(scorRecord, width/2+100, height/2+40);
-      text("TIMP RECORD:", width/2-40, height/2+80);
-       text(timpRecord, width/2+100, height/2+80);
-      
-}
-void keyPressed() {
-  directieY=-1;
-  startFrUrcare=frameCount;
-  vitezaY=7.5;
-}
 
+  }
 void mouseClicked() {
   
   setup();
