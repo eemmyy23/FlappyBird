@@ -190,9 +190,20 @@ void deseneazaPasare() {
 
   fill(250, 820, 100);
   quad(pozX+3*rad/4, pozY+2, pozX+5*rad/4-3, pozY+2, pozX+5*rad/4, pozY+rad/4, pozX+rad-2, pozY+rad/4+2 );
-  
-  fill(250, 820, 100);
-  quad(pozX-3*rad/4, pozY, pozX-rad/2, pozY+rad/4, pozX, pozY, pozX-rad/2, pozY-rad/4 );
+  if(aripa)
+{
+  fill(200);
+  quad(pozX-3*rad/4, pozY, pozX-rad/2, pozY+rad/4, pozX, pozY+rad/7, pozX-rad/3-2, pozY-rad/6 );
+}
+else
+{
+ fill(200);
+  quad(pozX-3*rad/4, pozY+rad/4, pozX-rad/3-2, pozY+2*rad/4-2, pozX, pozY+rad/7, pozX-rad/3-2, pozY );
+}
+if(frameCount%7==0) {
+  aripa=!aripa;
+}
+
 
   }
 void mouseClicked() {
