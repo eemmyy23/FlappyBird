@@ -5,11 +5,11 @@ class Obstacol {
   float directieX = -1;
   float latimeObstacol=93;
   int inaltimeCale=90;
-  Powerup p1;
+
   Obstacol(float pozXin, float caleYin) {
     pozX = pozXin;
     caleY = random(inaltimeCale + 20, height - inaltimeCale - 20);
-    p1=new Powerup(pozX, caleY);
+
   }
  
 
@@ -20,7 +20,7 @@ class Obstacol {
       caleY = random(inaltimeCale + 20, height - inaltimeCale - 20);
       
     }
-     p1.move();
+
   }
 
   void display() {
@@ -142,7 +142,7 @@ class Obstacol {
     stroke(0, 0, 0, 70);
     strokeWeight(5);
     line(pozX+latimeObstacol-13, caleY+inaltimeCale+45, pozX+latimeObstacol-13, height-3);
-  p1.display();
+
 }
   boolean trecereObstacol(float centruX) {
     if (centruX==pozX) {

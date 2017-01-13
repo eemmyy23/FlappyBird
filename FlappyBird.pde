@@ -8,7 +8,6 @@ int directieY = 1;  // 1 coborare; -1 urcare
 int startFrUrcare=0,timp;
 int durataFrUrcare=15;
 Obstacol o1, o2, o3;
-Powerup p1;
 void gameOver() {
   int timp=(int)((frameCount-framestart)/frameRate);
   aInceputJoc=false;
@@ -219,4 +218,5 @@ void mouseClicked() {
   
   setup();
   framestart=frameCount;
+  aInceputJoc=false;
 }
