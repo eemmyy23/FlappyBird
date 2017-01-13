@@ -123,8 +123,17 @@ if(aInceputJoc==true){
   }
 }
 else
-scriestart();
-
+{
+  scriestart();
+  vitezaY=2;
+   pozY = pozY + ( vitezaY * directieY );
+   vitezaY--;
+   if(frameCount%5==0)
+   {
+     vitezaY=2;
+   directieY=-directieY;
+   }
+}
 deseneazaPasare();
 
   }
@@ -133,7 +142,7 @@ void drawType(float x, int a) {
   text(a, x, height/4);
 }
 void scriestart() {
-  fill (255,250 ,250,255);
+  fill (50,80 ,20,255);
   f = createFont("Georgia", 24);
     textFont(f); 
       text("PRESS SPACE TO", width/4, height/2-80);
